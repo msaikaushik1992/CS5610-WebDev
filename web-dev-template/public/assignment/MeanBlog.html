@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MeanBlogApp">
+<head>
+    <meta charset="UTF-8">
+    <title>MeanBlogApp</title>
+    <!-- jQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <!-- Angular cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <!-- Bootstrap cdn-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/MeanBlogApp.js"></script>
+</head>
+<body>
+    <div ng-controller="BlogController" class="container">
+        <h1>MeanBlog App</h1>
+        <form>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Title:</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Enter title of the post" ng-model = "newtitle">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Message:</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter body of the post:" ng-model = "newbody"></textarea>
+            </div>
+            <button ng-click="createpost(newtitle,newbody)" type="button" class="btn btn-primary">Post</button>
+            <div ng-repeat = "p in posts">
+                <h2>{{p.title}}
+                    <span class="glyphicon glyphicon-remove pull-right" ng-click = removepost(p._id)></span>
+                </h2>
+                <p>{{p.body}}</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
